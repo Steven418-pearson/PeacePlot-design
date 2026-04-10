@@ -40,7 +40,7 @@
       color: var(--ink);
       background-color: var(--bg);
       background-image:
-        linear-gradient(rgba(248, 249, 250, 0.4), rgba(248, 249, 250, 0.4)),
+        linear-gradient(rgba(248, 249, 250, 0.3), rgba(248, 249, 250, 0.3)),
         var(--page-bg-image);
       background-size: cover;
       background-position: center;
@@ -98,11 +98,73 @@
 
     .brand-text strong {
       display: block;
-      font-size: 1rem;
-      font-weight: 700;
-      letter-spacing: -0.025em;
-      line-height: 1.2;
+      font-size: 1.18rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.06;
       color: var(--ink);
+    }
+
+    .brand-titlefx {
+      display: inline-block;
+      background-image: linear-gradient(110deg, #0f172a 0%, #1d4ed8 24%, #0ea5e9 46%, #34d399 62%, #1d4ed8 82%, #0f172a 100%);
+      background-size: 300% 100%;
+      background-position: 0% 50%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+      -webkit-text-stroke: 0.35px rgba(15, 23, 42, 0.22);
+      text-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.4),
+        0 3px 10px rgba(14, 116, 144, 0.22);
+      animation:
+        brand-calm-flow 4.2s linear infinite,
+        brand-title-glow 2.6s ease-in-out infinite;
+    }
+
+    .brand-titlefx__ai {
+      display: inline-block;
+      margin-left: 0.16em;
+      padding: 0.06em 0.36em 0.05em;
+      border-radius: 999px;
+      font-size: 0.7em;
+      letter-spacing: 0.06em;
+      font-weight: 800;
+      text-transform: uppercase;
+      background: linear-gradient(120deg, rgba(37, 99, 235, 0.22), rgba(14, 165, 233, 0.27));
+      color: #1d4ed8;
+      -webkit-text-fill-color: #1d4ed8;
+      box-shadow:
+        inset 0 0 0 1px rgba(37, 99, 235, 0.26),
+        0 2px 8px rgba(37, 99, 235, 0.15);
+      animation:
+        brand-ai-breathe 2.1s ease-in-out infinite,
+        brand-ai-shift 3.6s linear infinite;
+    }
+
+    @keyframes brand-calm-flow {
+      0%,
+      100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    @keyframes brand-ai-breathe {
+      0%,
+      100% { box-shadow: inset 0 0 0 1px rgba(37, 99, 235, 0.26), 0 2px 8px rgba(37, 99, 235, 0.15); }
+      50% { box-shadow: inset 0 0 0 1px rgba(16, 185, 129, 0.42), 0 3px 10px rgba(16, 185, 129, 0.18); }
+    }
+
+    @keyframes brand-title-glow {
+      0%,
+      100% { filter: saturate(100%) brightness(100%); }
+      50% { filter: saturate(122%) brightness(108%); }
+    }
+
+    @keyframes brand-ai-shift {
+      0%,
+      100% { transform: translateY(0); }
+      50% { transform: translateY(-1px); }
     }
 
     .brand-text small {
@@ -330,7 +392,7 @@
     /* Highlighted header strip */
     .header-slab {
       margin: -0.85rem -1rem 1.15rem;
-      padding: 1rem 1rem 1.2rem;
+      padding: calc(0.62rem + env(safe-area-inset-top, 0px)) 1rem 0.72rem;
       background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 42%, #e0efff 100%);
       border-radius: 0 0 26px 26px;
       border: 1px solid rgba(37, 99, 235, 0.14);
@@ -338,8 +400,11 @@
       box-shadow:
         0 4px 6px rgba(37, 99, 235, 0.04),
         0 18px 40px -8px rgba(37, 99, 235, 0.14);
-      position: relative;
-      z-index: 110;
+      position: sticky;
+      top: 0;
+      z-index: 120;
+      backdrop-filter: blur(6px) saturate(120%);
+      -webkit-backdrop-filter: blur(6px) saturate(120%);
     }
 
     .header-slab::before {
@@ -894,6 +959,10 @@
       .hero-action,
       .hero-action::after {
         transition: none;
+      }
+      .brand-titlefx,
+      .brand-titlefx__ai {
+        animation: none;
       }
       .hero-action:hover {
         transform: none;
@@ -1520,7 +1589,7 @@
             </svg>
           </div>
           <div class="brand-text">
-            <strong>PeacePlot AI</strong>
+            <strong><span class="brand-titlefx">PeacePlot</span> <span class="brand-titlefx__ai">AI</span></strong>
             <small>Calm · clarity · care</small>
           </div>
         </a>

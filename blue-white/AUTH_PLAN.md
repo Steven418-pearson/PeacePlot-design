@@ -46,13 +46,13 @@
 
 ## Alignment with global header (implemented)
 
-Sign-in and sign-up now use the landing-style header slab with the same **logo + PeacePlot AI title** lockup, and a right-side back icon control to return home.
+Sign-in and sign-up now use the landing-style header slab with the same **logo + PeacePlot AI title** lockup, a right-side back icon control, and a matching calm-flow title decoration style.
 
 ---
 
 ## Global background image (implemented)
 
-Auth pages use `assets/nour-elhakim-CsiFAKKBwUc-unsplash.jpg` as the page background via [`auth.css`](auth.css) with `background-size: cover` and `background-position: center` (plus a light readability overlay).
+Auth pages use `assets/nour-elhakim-CsiFAKKBwUc-unsplash.jpg` as the page background via [`auth.css`](auth.css) with `background-size: cover` and `background-position: center` (plus a light readability overlay at `0.3` opacity).
 
 ---
 

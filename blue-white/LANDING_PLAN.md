@@ -48,6 +48,7 @@ This folder is the **self-contained** build: open [`index.html`](index.html) her
    - **Logo** — the PeacePlot brand mark (same SVG / container as `.brand-logo` on the landing, unless replaced by a single shared asset later).
    - **Project title** — **`PeacePlot AI`** (matching the landing `brand-text` strong line; tagline *Calm · clarity · care* optional but should match landing if shown).
 2. **Consistency** — Secondary actions (profile, back, bell) can vary by page, but **logo + title** stay in the same visual position and style as on the landing.
+3. **Brand title treatment** — `PeacePlot AI` uses a decorated, calm-flow style (soft gradient + subtle motion highlight) to feel modern and expressive without hurting readability.
 
 **Note:** Header persistence on scroll remains a future enhancement if desired.
 
@@ -60,7 +61,7 @@ All `blue-white` pages now use `assets/nour-elhakim-CsiFAKKBwUc-unsplash.jpg` as
 
 - `background-size: cover`
 - `background-position: center`
-- light overlay gradient for readability on cards and text
+- light overlay gradient for readability on cards and text (`0.3` opacity)
 
 Applied in [`index.html`](index.html), [`auth.css`](auth.css) (for sign-in/sign-up), and [`search.html`](search.html).
 
@@ -84,7 +85,7 @@ Applied in [`index.html`](index.html), [`auth.css`](auth.css) (for sign-in/sign-
 ## Page structure (top to bottom)
 
 1. **Highlighted header (`.header-slab`)**  
-   Wraps **`.site-header`**: **brand lockup** (`.brand-logo` SVG + **PeacePlot AI** + tagline *Calm · clarity · care*), profile menu. Gradient slab, rounded bottom corners, border and shadow.
+   Wraps **`.site-header`**: **brand lockup** (`.brand-logo` SVG + animated/decorated **PeacePlot AI** + tagline *Calm · clarity · care*), profile menu. Gradient slab, rounded bottom corners, border and shadow.
 
 2. **Hero + motto (`.hero-motto`)**  
    - **Image:** `assets/hero-motto-bg.png`, `object-fit: cover`, tuned `object-position`.  
