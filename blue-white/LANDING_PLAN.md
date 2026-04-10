@@ -9,8 +9,8 @@ todos:
     content: "Header-slab highlight; hero-motto image + gradient + motto card"
     status: completed
   - id: global-header-lockup
-    content: "Logo + PeacePlot AI title always visible in app header on every page; sticky/fixed on scroll"
-    status: pending
+    content: "Logo + PeacePlot AI title aligned across landing and auth headers"
+    status: completed
   - id: sections-scroll
     content: "Search, chips, popular cards, overlap journey card, sticky bar"
     status: completed
@@ -40,19 +40,29 @@ This folder is the **self-contained** build: open [`index.html`](index.html) her
 
 ---
 
-## Global app header (pending)
+## Global app header (implemented)
 
-**Problem:** On the landing, the highlighted header (`.header-slab`) **scrolls away** with the page, so the **brand logo** and **project title** are not always on screen. Auth pages ([`sign-in.html`](sign-in.html), [`sign-up.html`](sign-up.html)) use a different, minimal top row (back link + text) and do **not** yet reuse the same **logo + title lockup** as the landing.
-
-**Requirement — do not implement until the user says “go”:**
+**Status:** Landing and auth now use the same brand lockup style and auth places the back control on the right side of the header.
 
 1. **Every page** in this bundle that is part of the app experience (`index.html`, auth pages, any future screens) must include the **same primary header treatment** with:
    - **Logo** — the PeacePlot brand mark (same SVG / container as `.brand-logo` on the landing, unless replaced by a single shared asset later).
    - **Project title** — **`PeacePlot AI`** (matching the landing `brand-text` strong line; tagline *Calm · clarity · care* optional but should match landing if shown).
-2. **Persistent visibility** — That header row must remain **visible during vertical scroll** (e.g. `position: sticky` or `fixed` within the shell, with safe-area and z-index so content does not obscure it). Users should not lose orientation (where they are in the product) when scrolling.
-3. **Consistency** — Secondary actions (profile, back, bell) can vary by page, but **logo + title** stay in the same visual position and style as on the landing.
+2. **Consistency** — Secondary actions (profile, back, bell) can vary by page, but **logo + title** stay in the same visual position and style as on the landing.
 
-**Implementation note:** Likely extract shared header markup/CSS (or duplicate minimally with identical classes) and apply to auth pages; adjust landing CSS so the slab + site header stick appropriately without breaking hero overlap or nav.
+**Note:** Header persistence on scroll remains a future enhancement if desired.
+
+---
+
+
+## Global background image (implemented)
+
+All `blue-white` pages now use `assets/nour-elhakim-CsiFAKKBwUc-unsplash.jpg` as the main page background with:
+
+- `background-size: cover`
+- `background-position: center`
+- light overlay gradient for readability on cards and text
+
+Applied in [`index.html`](index.html), [`auth.css`](auth.css) (for sign-in/sign-up), and [`search.html`](search.html).
 
 ---
 
@@ -74,7 +84,7 @@ This folder is the **self-contained** build: open [`index.html`](index.html) her
 ## Page structure (top to bottom)
 
 1. **Highlighted header (`.header-slab`)**  
-   Wraps **`.site-header`**: **brand lockup** (`.brand-logo` SVG + **PeacePlot AI** + tagline *Calm · clarity · care*), profile menu. Gradient slab, rounded bottom corners, border and shadow. **Current limitation:** header scrolls with content; **planned:** keep logo + title always visible (see [Global app header (pending)](#global-app-header-pending)). *(Older copy referred to a different bar layout; shipped markup uses the lockup above.)*
+   Wraps **`.site-header`**: **brand lockup** (`.brand-logo` SVG + **PeacePlot AI** + tagline *Calm · clarity · care*), profile menu. Gradient slab, rounded bottom corners, border and shadow.
 
 2. **Hero + motto (`.hero-motto`)**  
    - **Image:** `assets/hero-motto-bg.png`, `object-fit: cover`, tuned `object-position`.  

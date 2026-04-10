@@ -44,9 +44,15 @@
 
 ---
 
-## Alignment with global header (pending)
+## Alignment with global header (implemented)
 
-Sign-in and sign-up currently use a minimal **`auth-header`** (Home link + “PeacePlot AI” text). Per **[`LANDING_PLAN.md`](LANDING_PLAN.md)** — *Global app header*, they should be updated **when approved** to reuse the **same logo + PeacePlot AI title** (and sticky behavior) as the landing so brand presence is consistent on every page. No code changes until the user says **go**.
+Sign-in and sign-up now use the landing-style header slab with the same **logo + PeacePlot AI title** lockup, and a right-side back icon control to return home.
+
+---
+
+## Global background image (implemented)
+
+Auth pages use `assets/nour-elhakim-CsiFAKKBwUc-unsplash.jpg` as the page background via [`auth.css`](auth.css) with `background-size: cover` and `background-position: center` (plus a light readability overlay).
 
 ---
 
