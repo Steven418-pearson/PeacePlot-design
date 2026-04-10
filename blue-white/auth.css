@@ -8,6 +8,7 @@
   --primary: #2563eb;
   --primary-hover: #1d4ed8;
   --border: #e5e7eb;
+  --page-bg-image: url("file:///Users/marcus/.cursor/projects/Volumes-Work-Projects-App-Building-PeacePlot/assets/nour-elhakim-CsiFAKKBwUc-unsplash-3824b68c-d1b3-4b9d-98a2-ce7309b27bac.png");
   --radius: 24px;
   --shadow: 0 4px 24px rgba(17, 24, 39, 0.06);
   --shadow-sm: 0 2px 12px rgba(17, 24, 39, 0.05);
@@ -25,7 +26,14 @@ body.auth-page {
   min-height: 100dvh;
   font-family: Inter, system-ui, -apple-system, sans-serif;
   color: var(--ink);
-  background: var(--bg);
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(rgba(248, 249, 250, 0.76), rgba(248, 249, 250, 0.76)),
+    var(--page-bg-image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -35,40 +43,145 @@ body.auth-page {
   padding: 0.85rem 1rem calc(1.5rem + env(safe-area-inset-bottom, 0px));
 }
 
-.auth-header {
-  margin-bottom: 1.25rem;
+/* Match landing `.header-slab` + brand row */
+.auth-header-slab {
+  margin: -0.85rem -1rem 1.15rem;
+  padding: 1rem 1rem 1.2rem;
+  background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 42%, #e0efff 100%);
+  border-radius: 0 0 26px 26px;
+  border: 1px solid rgba(37, 99, 235, 0.14);
+  border-top: none;
+  box-shadow:
+    0 4px 6px rgba(37, 99, 235, 0.04),
+    0 18px 40px -8px rgba(37, 99, 235, 0.14);
+  position: relative;
+  z-index: 10;
 }
 
-.auth-back {
-  display: inline-flex;
+.auth-header-slab::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(59, 130, 246, 0.15));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+.auth-site-header {
+  display: flex;
   align-items: center;
-  gap: 0.35rem;
-  color: var(--primary);
-  font-weight: 600;
-  font-size: 0.88rem;
+  justify-content: space-between;
+  gap: 0.75rem;
+  position: relative;
+  z-index: 1;
+}
+
+.auth-brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-width: 0;
   text-decoration: none;
-  margin-bottom: 0.75rem;
+  color: inherit;
 }
 
-.auth-back:hover {
-  text-decoration: underline;
+.auth-brand-lockup:hover .auth-brand-text strong {
+  color: var(--primary);
 }
 
-.auth-brand {
+.auth-brand-logo {
+  width: 2.5rem;
+  height: 2.5rem;
+  flex-shrink: 0;
+  border-radius: 16px;
+  background: linear-gradient(145deg, #60a5fa 0%, var(--primary) 100%);
+  border: 1px solid rgba(37, 99, 235, 0.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 2px 8px rgba(37, 99, 235, 0.2),
+    0 0 0 3px rgba(255, 255, 255, 0.95),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.auth-brand-logo svg {
+  width: 1.35rem;
+  height: 1.35rem;
+  color: #fff;
+}
+
+.auth-brand-text {
+  min-width: 0;
+}
+
+.auth-brand-text strong {
   display: block;
-  font-size: 1.05rem;
+  font-size: 1rem;
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
   color: var(--ink);
-  text-decoration: none;
+  transition: color 0.15s ease;
 }
 
-.auth-brand:hover {
+.auth-brand-text small {
+  display: block;
+  font-size: 0.6rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  margin-top: 0.08rem;
+}
+
+/* Back / home — right side, matches landing header chrome */
+.auth-header-back {
+  flex-shrink: 0;
+  width: 2.65rem;
+  height: 2.65rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 2px solid rgba(37, 99, 235, 0.2);
+  background: rgba(255, 255, 255, 0.95);
   color: var(--primary);
+  text-decoration: none;
+  box-shadow:
+    0 2px 8px rgba(37, 99, 235, 0.12),
+    0 0 0 1px rgba(255, 255, 255, 0.8) inset;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
 }
 
-.auth-kicker {
-  margin: 0.2rem 0 0;
+.auth-header-back:hover {
+  border-color: var(--primary);
+  background: #fff;
+  box-shadow:
+    0 2px 12px rgba(37, 99, 235, 0.18),
+    0 0 0 1px rgba(255, 255, 255, 0.9) inset;
+}
+
+.auth-header-back:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.auth-header-back svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.auth-header-kicker {
+  position: relative;
+  z-index: 1;
+  margin: 0.65rem 0 0;
   font-size: 0.72rem;
   font-weight: 600;
   text-transform: uppercase;

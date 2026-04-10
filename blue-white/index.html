@@ -28,6 +28,7 @@
       --radius-lg: 28px;
       --nav-h: 5.25rem;
       --safe-bottom: env(safe-area-inset-bottom, 0px);
+      --page-bg-image: url("file:///Users/marcus/.cursor/projects/Volumes-Work-Projects-App-Building-PeacePlot/assets/nour-elhakim-CsiFAKKBwUc-unsplash-3824b68c-d1b3-4b9d-98a2-ce7309b27bac.png");
       font-family: Inter, system-ui, -apple-system, sans-serif;
     }
 
@@ -37,7 +38,14 @@
       margin: 0;
       min-height: 100dvh;
       color: var(--ink);
-      background: var(--bg);
+      background-color: var(--bg);
+      background-image:
+        linear-gradient(rgba(248, 249, 250, 0.74), rgba(248, 249, 250, 0.74)),
+        var(--page-bg-image);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
       -webkit-font-smoothing: antialiased;
     }
 
